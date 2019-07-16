@@ -11,7 +11,7 @@ metadata:
 spec:
   containers:
   - name: ansible
-    image: ansible:latest
+    image: ansible/ansible:latest
     tty: true
 """
     }
@@ -19,8 +19,9 @@ spec:
   stages {
     stage('Pull') {
       steps {
-        container('maven') {
-          sh 'mvn -version'
+        container('ansible') {
+            git url: 'https://github.com/shamsalmon/ansible-demo.git'
+            sh 'ansible-playbook -i inventory/ windows.yml'
         }
       }
     }
