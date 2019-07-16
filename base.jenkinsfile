@@ -21,7 +21,7 @@ spec:
       steps {
         container('python') {
             git url: 'https://github.com/shamsalmon/ansible-demo.git'
-            sh 'pip install ansible'
+            sh 'pip install ansible boto boto3 pywinrm'
             sh 'ansible-playbook -i inventory/ windows.yml'
         }
       }
