@@ -17,7 +17,7 @@ spec:
     }
   }
   stages {
-    stage('Pull') {
+    stage('Run Ansible Demo') {
       steps {
         container('python') {
             git url: 'https://github.com/shamsalmon/ansible-demo.git'
